@@ -1,4 +1,4 @@
-require 'rspec'
+ require 'rspec'
 require '01_select_basics'
 
 describe 'SELECT basics' do
