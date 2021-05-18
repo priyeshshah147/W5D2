@@ -91,7 +91,11 @@ def presidential_prizes
   FROM
   nobels
   WHERE
-  subject = 'Peace' AND subject ='presidential'
+  winner = 'Theodore Roosevelt'
+  OR
+  winner = 'Woodrow Wilson'
+  OR
+  winner = 'Jimmy Carter';
   SQL
 end
 

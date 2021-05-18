@@ -86,10 +86,14 @@ def populous_country_counts
   continent, COUNT(*)
   FROM
   countries
-  GROUP BY
-  countries
-  HAVING
-  population > 10000000;
+  WHERE
+  continent IN (
+    SELECT 
+    continent
+    FROM
+    countries
+    WHERE 
+    population > 10000000);
   SQL
 end
 
@@ -103,6 +107,6 @@ def populous_continents
   GROUP BY
   continents
   HAVING
-  SUM(population) > 
+  MAX(population) > 
   SQL
 end
