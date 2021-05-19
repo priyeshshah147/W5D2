@@ -87,13 +87,10 @@ def populous_country_counts
   FROM
   countries
   WHERE
-  continent IN (
-    SELECT 
-    continent
-    FROM
-    countries
-    WHERE 
-    population > 10000000);
+    population >=10000000
+  GROUP BY
+    continent;
+
   SQL
 end
 
@@ -101,12 +98,12 @@ def populous_continents
   # List the continents that have a total population of at least 100 million.
   execute(<<-SQL)
   SELECT 
-  continent, SUM()
+  continent
   FROM
   countries
   GROUP BY
-  continents
+  continent
   HAVING
-  MAX(population) > 
+  SUM(population) > 100000000;
   SQL
 end
